@@ -13,7 +13,10 @@ public class PlayerPickUp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             float pickUpDistance = 2f;
-            Physics.Raycast(PlayerCameraTransform.position, PlayerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance);
+            if(Physics.Raycast(PlayerCameraTransform.position, PlayerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, PickUpLayerMask))
+            {
+                Debug.Log(raycastHit.transform);
+            }
         }
     }
 }
